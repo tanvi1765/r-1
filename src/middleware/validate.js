@@ -1,5 +1,4 @@
 const joi = require("joi");
-const pick = require("../helpers/pick");
 
 const validate = (schema) => (req, res, next) => {
   const validSchema = pick(schema, ["params", "query", "body"]);

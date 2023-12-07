@@ -87,8 +87,7 @@ const updateadmin = async (req, res) => {
 /** Get admin details by id */
 const getadminDetails = async (req, res) => {
   try {
-    const getadminDetails = await adminservice.getadminById(req.params.adminId
-      );
+    const getadminDetails = await adminservice.getadminById(req.params.adminId);
     if (!getDetails) {
       throw new Error("admin not found!");
     }
