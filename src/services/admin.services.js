@@ -1,20 +1,34 @@
-const {admin}= require("../model");
+const { admin } = require("../model")
 
-const createadmin = async(reqbody)=>{
-    return admin.create(reqbody);
+const createadmin = async (reqBody) => {
+    return admin.create(reqBody);
 };
-const getadminlist =async( req,res)=>{
+
+const getadminByName = async (admin_name) => {
+    return admin.findOne({ admin_name });
+};
+
+const getadminList = async (filter, options) => {
     return admin.find();
 };
-const getadminById =async(userId)=>{
-    return admin.findById(userId);
+
+const deleteadmin = async (adminId) => {
+    return admin.findByIdAndDelete(adminId);
 };
-const deleteadmin = async(userId)=>{
-    return admin.deleteadmin(userId);
-}
-module.exports={
+
+const getadminById = async (adminId) => {
+    return admin.findById(adminId);
+};
+
+const updateDetails = async () => {
+    return admin.findByIdAndUpdate();
+};
+
+module.exports = {
     createadmin,
-    getadminlist,
+    getadminByName,
+    getadminList,
+    deleteadmin,
     getadminById,
-    deleteadmin
-}
+    updateDetails
+};

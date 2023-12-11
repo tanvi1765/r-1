@@ -1,9 +1,12 @@
-const express= require("express");
-const router= express.Router();
+const express = require("express");
 
-const adminRoute= require("./admin.route");
-router.use("/admin",adminRoute);
-
+const adminRoute = require("./admin.route");
 const subadminRoute = require("./subadmin.route");
-router.use("/subadmin",subadminRoute);
 
+const router = express.Router();
+
+router.use("/admin", adminRoute);
+router.use("/subadmin", subadminRoute);
+
+
+module.exports = router;

@@ -1,33 +1,32 @@
-const express = require("experess");
-const{ subadminvalidation }=require("../validation");
-const{ subadmincontroller }=require("../controller");
+const express = require("express");
+const { subadminValidation } = require("../validation");
+const { subadminController } = require("../controller");
 const validate = require("../middleware/validate");
 
 const router = express.Router();
 
 // create subadmin
 router.post(
-    "/*create subadmin",
-    validate(subadminvalidation,createsubadmin),
-    subadmincontroller.createsubadmin
-);
-//   getsubadminlist
-router.get(
-    "/*subadmin list ",
-    validate(subadminvalidation,getsubadminlist),
-    admincontroller.getadminlist
-);
-// create subadmin
-router.get(
-    "/*getadminBy id",
-    validate(subadminvalidation,getsubadminById),
-    subadmincontroller.getsubadminById
-);
-// create subadmin
-router.delete(
-    "/*deletesubadmin",
-    validate(subadminvalidation,deletesubadmin),
-    subadmincontroller.deletesubadmin
+  "/create-subadmin",
+  validate(subadminValidation.createsubadmin),
+  subadminController.createsubadmin
 );
 
-module.exports = router
+// Get subadmin list
+router.get(
+  "/list",
+  subadminController.getsubadminList
+);
+// get subadmin details by id
+router.get(
+  "/get-details/:subadminId",
+  subadminController.getsubadminDetails
+)
+
+// delete subadmin
+router.delete(
+  "/delete/:subadminId",
+  subadminController.deletesubadmin
+)
+
+module.exports = router;

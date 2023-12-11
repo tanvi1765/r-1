@@ -1,6 +1,5 @@
-const { boolean } = require("joi");
 const mongoose = require("mongoose");
-const adminSchema= new mongoose.adminSchema({
+const adminSchema = new mongoose.Schema({
     admin_name:{
         type:String,
         trim:true,
@@ -10,7 +9,7 @@ const adminSchema= new mongoose.adminSchema({
         trim:true,
     },
     is_active:{
-        type:boolean,
+        type:Boolean,
         default:true,
     },
 })

@@ -1,20 +1,34 @@
-const {subadmin}= require("../model");
+const { subadmin } = require("../model");
 
-const createsubadmin = async(reqbody)=>{
-    return subadmin.create(reqbody);
+const createsubadmin = async (reqBody) => {
+    return subadmin.create(reqBody);
 };
-const getsubadminlist =async( req,res)=>{
+
+const getsubadminByName = async (subadmin_name) => {
+    return subadmin.findOne({ subadmin_name });
+};
+
+const getsubadminList = async (filter, options) => {
     return subadmin.find();
 };
-const getsubadminById =async(userId)=>{
-    return subadmin.findById(userId);
+
+const deletesubadmin = async (subadminId) => {
+    return subadmin.findByIdAndDelete(subadminId);
 };
-const deletesubadmin = async(userId)=>{
-    return subadmin.deletesubadmin(userId);
-}
-module.exports={
+
+const getsubadminById = async (subadminId) => {
+    return subadmin.findById(subadminId);
+};
+
+const updateDetails = async () => {
+    return subadmin.findByIdAndUpdate();
+};
+
+module.exports = {
     createsubadmin,
-    getsubadminlist,
+    getsubadminByName,
+    getsubadminList,
+    deletesubadmin,
     getsubadminById,
-    deletesubadmin
-}
+    updateDetails
+};

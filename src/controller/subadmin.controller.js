@@ -59,31 +59,6 @@ const deletesubadmin = async (req, res) => {
       message: error.message });
   }
 };
-
-/* update subadmin  */
-const updatesubadmin = async (req, res) => {
-  try {
-    const subadminId = req.params.subadminId;
-
-    const cateExists = await subadminservice.getsubadminById(subadminId);
-    if (!cateExists) {
-      throw new Error("subadmin not found!");
-    }
-
-    await subadminservice.updateDetails(subadminId, req.body);
-
-    res.status(200).json({
-      success: true,
-      message: "subadmin details update successfully!",
-    });
-  } catch (error) {
-    res.status(400).json({
-      success: false,
-      message: error.message,
-    });
-  }
-};
-
 /** Get subadmin details by id */
 const getsubadminDetails = async (req, res) => {
   try {
@@ -106,6 +81,5 @@ module.exports = {
    createsubadmin,
    getsubadminList,
    getsubadminDetails,
-   updatesubadmin,
    deletesubadmin,
 };

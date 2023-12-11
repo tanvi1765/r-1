@@ -1,2 +1,2 @@
-module.exports.admincontroller= require("./admin.controller")
-module.exports.subadmincontroller= require("./subadmin.controller")
+module.exports.adminController= require("./admin.controller")
+module.exports.subadminController= require("./subadmin.controller")

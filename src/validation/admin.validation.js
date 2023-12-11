@@ -9,5 +9,5 @@ const joi= require("joi");
  };
 
  module.exports={
-   createadmin
+    createadmin
  }

@@ -1,2 +1,2 @@
-module.exports.createadmin = require("./admin.validation");
-module.exports.createsubadmin = require("./subadmin.validation");
+module.exports.adminValidation = require("./admin.validation");
+module.exports.subadminValidation = require("./subadmin.validation");

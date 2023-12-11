@@ -1,4 +1,4 @@
-const {adminservice} = require("../services");
+const { adminservice } = require("../services");
 
 /** create adminservice */
 const createadmin = async (req, res) => {
@@ -60,30 +60,6 @@ const deleteadmin = async (req, res) => {
   }
 };
 
-/* update admin  */
-const updateadmin = async (req, res) => {
-  try {
-    const adminId = req.params.adminId;
-
-    const cateExists = await adminservice.getadminById(adminId);
-    if (!cateExists) {
-      throw new Error("admin not found!");
-    }
-
-    await adminservice.updateDetails(adminId, req.body);
-
-    res.status(200).json({
-      success: true,
-      message: "admin details update successfully!",
-    });
-  } catch (error) {
-    res.status(400).json({
-      success: false,
-      message: error.message,
-    });
-  }
-};
-
 /** Get admin details by id */
 const getadminDetails = async (req, res) => {
   try {
@@ -105,6 +81,5 @@ module.exports = {
    createadmin,
    getadminList,
    getadminDetails,
-   updateadmin,
    deleteadmin,
 };
